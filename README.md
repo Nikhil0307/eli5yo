@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 ELI5YO - Explain Like I'm 5 Years Old
 
-## Getting Started
+ELI5YO is an open-source web application that simplifies any complex topic, term, or text snippet entered by the user — as if explaining it to a 5-year-old. This tool leverages Google's Gemini Large Language Model (LLM) to make information more accessible, friendly, and less intimidating.
 
-First, run the development server:
+**Live Demo:** [eli5yo-yourusername.vercel.app](https://eli5yo-yourusername.vercel.app) (Replace with your Vercel link once deployed)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features (MVP)
+*   🔤 Single input field for entering the topic/text
+*   🔘 “Explain It To Me!” button to trigger explanation
+*   📄 Display area for AI-generated ELI5 response
+*   ⏳ Loading indicator while fetching
+*   ❗ Error message handling
+*   ⚠️ Disclaimer about AI generation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
+*   **Frontend:** Next.js (React, App Router, TypeScript)
+*   **Styling:** Tailwind CSS
+*   **Backend Logic:** Next.js API Routes (Vercel Serverless Functions)
+*   **LLM:** Google Gemini API (`gemini-1.5-flash-latest`)
+*   **Deployment:** Vercel
+*   **Version Control:** Git & GitHub
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Getting Started Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/<your-github-username>/eli5yo.git
+    cd eli5yo
+    ```
 
-## Learn More
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    # yarn install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3.  **Set up environment variables:**
+    *   Create a `.env.local` file in the root of the project.
+    *   Add your Google Gemini API key:
+        ```
+        GEMINI_API_KEY=YOUR_GEMINI_API_KEY_HERE
+        ```
+    *   You can get an API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    # or
+    # yarn dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
+Contributions are welcome! Please feel free to open an issue or submit a pull request for:
+*   Bug fixes
+*   UI/UX improvements
+*   Prompt refinements
+*   New features (post-MVP ideas are welcome!)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
