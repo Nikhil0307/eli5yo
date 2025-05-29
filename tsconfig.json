@@ -18,8 +18,14 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".", // Project root is the base
     "paths": {
-      "@/*": ["./src/*"]
+      // Remove "@/*": ["./src/*"] if you don't have an src directory you're actively using for aliased imports
+      "@/app/*": ["./app/*"],
+      "@/components/*": ["./components/*"],
+      "@/types/*": ["./types/*"], // <--- THIS NOW POINTS TO THE ROOT types FOLDER
+                                 // OR if you named your file index.ts: "@/types": ["./types/index.ts"]
+                                 // Using "@/types/*": ["./types/*"] is generally fine as index.ts will be picked up.
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

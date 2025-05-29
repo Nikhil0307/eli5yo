@@ -2,17 +2,12 @@
 'use client';
 
 import { useState, FormEvent, useRef, useEffect, useCallback } from 'react';
-import styles from './ChatInterface.module.css';
-import ChatMessage from '../components/chat/ChatMessage';
-import ChatInput from '../components/chat/ChatInput';
-import { ThemeToggleButton, useTheme } from './contexts/ThemeContext';
+import styles from './ChatInterface.module.css'; // This is app/ChatInterface.module.css
+import ChatMessage from '@/components/chat/ChatMessage'; // Alias for components/chat/ChatMessage
+import ChatInput from '@/components/chat/ChatInput';     // Alias for components/chat/ChatInput
+import { ThemeToggleButton } from './contexts/ThemeContext';
+import type { Message } from '@/types/index'; 
 
-export interface Message {
-  id: string;
-  role: 'user' | 'assistant' | 'system' | 'error';
-  content: string;
-  createdAt?: Date;
-}
 
 const generateId = () => Math.random().toString(36).substring(2, 9);
 

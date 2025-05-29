@@ -1,6 +1,6 @@
 // app/components/chat/ChatMessage.tsx
 'use client';
-import type { Message } from '../../page'; // Adjust if Message interface is elsewhere
+import type { Message } from '@/types/index'; 
 import styles from './ChatMessage.module.css';
 import { User, BotMessageSquare, AlertTriangle } from 'lucide-react'; // Using specific icons
 
