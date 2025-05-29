@@ -1,0 +1,104 @@
+/* app/components/chat/ChatMessage.module.css */
+.messageRow {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 48rem; /* THIS CENTERS THE MESSAGE ROW CONTENT */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;  /* Overall horizontal padding for message rows */
+  padding-right: 1.5rem;
+}
+
+.messageRowUser {
+  flex-direction: row-reverse;
+}
+
+.messageRowAssistant {
+  /* Default flex direction is row */
+}
+
+.avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--surface-secondary);
+  color: var(--text-secondary);
+  margin-top: 0.125rem;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+.avatarUser {
+  background-color: var(--surface-accent);
+  color: var(--text-on-accent);
+}
+/* .avatarAssistant default is fine */
+.avatarError {
+  background-color: var(--surface-error);
+  color: var(--text-error);
+}
+
+.messageContentWrapper {
+  display: flex;
+  flex-direction: column;
+  /* Max width for the bubble itself relative to its parent row.
+     75% of the centered message row still gives good bubble width. */
+  max-width: 75%;
+}
+.messageRowUser .messageContentWrapper {
+  align-items: flex-end;
+}
+.messageRowAssistant .messageContentWrapper {
+  align-items: flex-start;
+}
+
+.bubble {
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-xl);
+  line-height: 1.6;
+  word-wrap: break-word;
+  box-shadow: var(--shadow-md);
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+.bubbleUser {
+  background-color: var(--surface-accent);
+  color: var(--text-on-accent);
+  border-top-right-radius: var(--border-radius-sm); /* "Tail" */
+}
+
+.bubbleAssistant {
+  background-color: var(--surface-secondary);
+  color: var(--text-primary);
+  border-top-left-radius: var(--border-radius-sm); /* "Tail" */
+}
+.bubbleAssistant a {
+  color: var(--text-accent);
+  text-decoration: underline;
+}
+.bubbleAssistant a:hover {
+  filter: brightness(120%);
+}
+
+.bubbleError {
+  background-color: var(--surface-error);
+  color: var(--text-error);
+  border: 1px solid color-mix(in srgb, var(--text-error) 50%, transparent);
+  border-top-left-radius: var(--border-radius-sm);
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+  opacity: 0.8;
+}
+.messageRowUser .timestamp {
+  text-align: right;
+}

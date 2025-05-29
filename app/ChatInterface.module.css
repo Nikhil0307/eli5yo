@@ -1,0 +1,181 @@
+/* app/ChatInterface.module.css */
+.chatPageContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+.chatPanel {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-primary);
+  width: 100%; /* Panel is now full width */
+  /* Removed max-width and margin: 0 auto from here */
+  /* Optional: Keep or remove borders if you want visual separation from body bg */
+  /* border-left: 1px solid var(--border-primary); */
+  /* border-right: 1px solid var(--border-primary); */
+  box-shadow: none; /* Or a very subtle one if panel bg is different from body */
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  overflow: hidden;
+}
+
+/* New: Wrapper for content that needs to be centered with a max-width */
+.contentWrapper {
+  width: 100%;
+  max-width: 48rem; /* Your desired max content width (e.g., Tailwind's max-w-3xl) */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;  /* Horizontal padding for the content itself */
+  padding-right: 1rem;
+}
+/* Specific use for header content, might have different padding or flex properties */
+.headerContentWrapper {
+  composes: contentWrapper; /* Inherits from contentWrapper */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1.5rem; /* Original header horizontal padding */
+  padding-right: 1.5rem;
+}
+/* Specific use for example prompts, might be wider */
+.emptyStateContentWrapper {
+  composes: contentWrapper; /* Inherits from contentWrapper */
+  max-width: 56rem; /* e.g. max-w-4xl, wider for example prompts */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem; /* Add some top padding for the empty state */
+  padding-bottom: 2rem;
+}
+
+
+.chatHeader {
+  /* No horizontal padding here, moved to .headerContentWrapper */
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-primary);
+  background-color: var(--surface-primary);
+  flex-shrink: 0;
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  position: relative;
+  z-index: 10;
+}
+
+.chatTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.chatTitleYo {
+  color: var(--text-accent);
+}
+
+.messagesArea {
+  flex-grow: 1;
+  overflow-y: auto;
+  /* Padding is handled by individual message rows or a wrapper if needed */
+  padding-top: 1rem;    /* Overall top padding for the messages list */
+  padding-bottom: 1rem; /* Overall bottom padding for the messages list */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Styles for Empty State (when no messages) */
+.emptyStateContainer { /* This container itself is inside messagesArea, so it will be centered by ChatMessage logic */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* padding: 2rem 1rem; Padding moved to emptyStateContentWrapper */
+  color: var(--text-secondary);
+}
+.emptyStateTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.emptyStateSubtitle {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.examplePromptsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+  /* max-width is on emptyStateContentWrapper */
+}
+.examplePromptButton {
+  background-color: var(--surface-secondary);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-secondary);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.examplePromptButton:hover {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-md);
+  background-color: color-mix(in srgb, var(--surface-secondary) 90%, var(--border-focus) 10%);
+}
+.examplePromptHeading {
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+.examplePromptMessage {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.loadingDotsContainer {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.6rem 1rem;
+    /* Centered like other messages due to ChatMessage.module.css .messageRow max-width */
+    /* margin-left: calc(2.25rem + 0.75rem); Old offset, not needed if row is centered */
+    max-width: 48rem; /* Same as message rows */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: calc(1.5rem + 2.25rem + 0.75rem); /* Align with AI message content start */
+    padding-right: 1.5rem;
+}
+.loadingDotsContainer.isWithinMessages { /* If used outside ChatMessage component */
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: calc(1.5rem + 2.25rem + 0.75rem); /* Global padding + avatar + gap */
+    padding-right: 1.5rem;
+}
+
+.loadingDotsContainer .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0 0.1875rem;
+    background-color: var(--text-secondary);
+    border-radius: 100%;
+    display: inline-block;
+    animation: pulseLoading 1.4s infinite ease-in-out both;
+}
+.loadingDotsContainer .dot:nth-child(1) { animation-delay: -0.32s; }
+.loadingDotsContainer .dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes pulseLoading {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1.0); opacity: 1; }
+}

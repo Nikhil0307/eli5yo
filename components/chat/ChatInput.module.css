@@ -1,0 +1,106 @@
+/* app/components/chat/ChatInput.module.css */
+.inputAreaOuter {
+  /* No horizontal padding here, .inputAreaInner handles it */
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-top: 1px solid var(--border-primary);
+  background-color: var(--surface-primary);
+  flex-shrink: 0;
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  position: relative;
+  z-index: 5;
+}
+
+.inputAreaInner {
+  max-width: 48rem; /* This centers the actual input form group */
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 1rem;  /* Padding for the centered content */
+  padding-right: 1rem;
+}
+
+.inputForm {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  background-color: var(--surface-secondary);
+  border-radius: var(--border-radius-xl);
+  padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+  border: 1px solid var(--border-secondary);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+}
+.inputForm:focus-within {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 1px var(--border-focus);
+}
+
+.inputTextarea {
+  flex-grow: 1;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: none;
+  resize: none;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  min-height: calc(1.6em + 0.25rem);
+  max-height: 10rem;
+  overflow-y: auto;
+  outline: none;
+  transition: color 0.2s ease-out;
+}
+.inputTextarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+.inputTextarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sendButton {
+  padding: 0.5rem;
+  background-color: var(--surface-accent);
+  color: var(--text-on-accent);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease-out, opacity 0.15s ease-out;
+  flex-shrink: 0;
+  height: 2.25rem;
+  width: 2.25rem;
+}
+.sendButton:hover:not(:disabled) {
+  background-color: var(--surface-accent-hover);
+}
+.sendButton:disabled {
+  background-color: var(--text-secondary);
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.sendButton:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.loadingSpinnerIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.footerDisclaimer {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  text-align: center;
+  padding: 0 0.5rem;
+}

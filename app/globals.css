@@ -1,34 +1,98 @@
 /* app/globals.css */
-body {
+:root {
+  /* --- Default (Light Theme) Variables --- */
+  --background-body: #ffffff;
+  --text-primary: #111827;    /* Tailwind gray-900 */
+  --text-secondary: #6b7280; /* Tailwind gray-500 */
+  --text-accent: #2563eb;    /* Tailwind blue-600 */
+  --text-on-accent: #ffffff;
+  --text-error: #dc2626;     /* Tailwind red-600 */
+
+  --surface-primary: #f9fafb; /* Tailwind gray-50 */
+  --surface-secondary: #f3f4f6; /* Tailwind gray-100 */
+  --surface-accent: #3b82f6;    /* Tailwind blue-500 */
+  --surface-accent-hover: #2563eb; /* Tailwind blue-600 */
+  --surface-error: #fee2e2;     /* Tailwind red-100 */
+
+  --border-primary: #e5e7eb; /* Tailwind gray-200 */
+  --border-secondary: #d1d5db; /* Tailwind gray-300 */
+  --border-focus: #2563eb;    /* Tailwind blue-600 */
+
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --border-radius-sm: 0.25rem;   /* 4px */
+  --border-radius-md: 0.375rem;  /* 6px */
+  --border-radius-lg: 0.5rem;    /* 8px */
+  --border-radius-xl: 0.75rem;   /* 12px */
+  --border-radius-full: 9999px;
+}
+
+/* --- Dark Theme Variables --- */
+[data-theme="dark"] {
+  --background-body: #030712;    /* Tailwind gray-950 */
+  --text-primary: #f3f4f6;      /* Tailwind gray-100 */
+  --text-secondary: #9ca3af;    /* Tailwind gray-400 */
+  --text-accent: #60a5fa;       /* Tailwind blue-400 */
+  --text-on-accent: #ffffff;
+  --text-error: #fca5a5;        /* Tailwind red-300 */
+
+  --surface-primary: #0f172a;   /* Tailwind slate-900 */
+  --surface-secondary: #1e293b; /* Tailwind slate-800 */
+  --surface-accent: #2563eb;
+  --surface-accent-hover: #1d4ed8;
+  --surface-error: #450a0a;
+
+  --border-primary: #1e293b;
+  --border-secondary: #334155;
+  --border-focus: #60a5fa;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.15);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.15);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.25), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+}
+
+
+/* --- Global Styles using Variables --- */
+html, body {
+  height: 100%;
+  width: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll on body itself */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background-body);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #111827; /* Example dark background */
-  color: #e5e7eb;         /* Example light text */
-  line-height: 1.5;
+  display: flex; /* Important for children to correctly use flex-grow */
+  flex-direction: column; /* So children can stack vertically */
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
 * {
   box-sizing: border-box;
 }
 
-/* Add any other global styles, resets, or typography defaults here */
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+/* Optional: Style scrollbars for a more cohesive theme (WebKit browsers) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-
-p {
-  margin-bottom: 1rem;
+::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--surface-primary) 50%, transparent);
 }
-
-a {
-  color: #3b82f6; /* Example link color */
-  text-decoration: none;
+::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: var(--border-radius-full);
 }
-a:hover {
-  text-decoration: underline;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
