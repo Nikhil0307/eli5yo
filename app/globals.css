@@ -7,6 +7,9 @@
   --text-accent: #2563eb;    /* Tailwind blue-600 */
   --text-on-accent: #ffffff;
   --text-error: #dc2626;     /* Tailwind red-600 */
+  --text-kofi: #FFDD57;
+  --text-linkedin: #0A66C2;
+  --text-portfolio: var(--text-accent);
 
   --surface-primary: #f9fafb; /* Tailwind gray-50 */
   --surface-secondary: #f3f4f6; /* Tailwind gray-100 */
@@ -40,6 +43,9 @@
   --text-accent: #60a5fa;       /* Tailwind blue-400 */
   --text-on-accent: #ffffff;
   --text-error: #fca5a5;        /* Tailwind red-300 */
+  --text-kofi: #FFDD57;
+  --text-linkedin: #70B5F9;
+  --text-portfolio: var(--text-accent); 
 
   --surface-primary: #0f172a;   /* Tailwind slate-900 */
   --surface-secondary: #1e293b; /* Tailwind slate-800 */

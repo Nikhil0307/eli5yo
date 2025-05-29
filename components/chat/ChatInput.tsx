@@ -30,15 +30,14 @@ export default function ChatInput({ input, setInput, handleSubmit, isLoading }: 
     }
   };
 
-  // Auto-resize textarea
   useEffect(() => {
     if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto'; // Reset height to shrink if text is deleted
+      textareaRef.current.style.height = 'auto';
       const scrollHeight = textareaRef.current.scrollHeight;
-      const maxHeight = 160; // approx 10rem or 5-6 lines (CSS defined max-height)
+      const maxHeight = 160; // Approx 10rem
       textareaRef.current.style.height = `${Math.min(scrollHeight, maxHeight)}px`;
     }
-  }, [input]); // Re-run when input changes
+  }, [input]);
 
   return (
     <div className={styles.inputAreaOuter}>
@@ -68,9 +67,44 @@ export default function ChatInput({ input, setInput, handleSubmit, isLoading }: 
             )}
           </button>
         </form>
+
         <p className={styles.footerDisclaimer}>
           ELI5YO may produce inaccurate information.
         </p>
+
+        <div className={styles.customFooter}>
+          <p>
+            Made with ♥️ by Nikhil
+          </p>
+          <div className={styles.footerLinksContainer}>
+            <a
+              href="https://ko-fi.com/K3K81FOHEA" // Your Ko-fi ID
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.footerLink} ${styles.kofiLink}`}
+            >
+              Buy Me a ☕️
+            </a>
+            <span className={styles.linkSeparator}>•</span>
+            <a
+              href="https://www.linkedin.com/in/nikhil0307/" // Your LinkedIn
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.footerLink} ${styles.linkedinLink}`}
+            >
+              LinkedIn
+            </a>
+            <span className={styles.linkSeparator}>•</span>
+            <a
+              href="https://nikhil-baskar.dev/" // Your Portfolio
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.footerLink} ${styles.portfolioLink}`}
+            >
+              Portfolio
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

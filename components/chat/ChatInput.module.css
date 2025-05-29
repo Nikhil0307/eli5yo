@@ -1,8 +1,8 @@
 /* app/components/chat/ChatInput.module.css */
+
 .inputAreaOuter {
-  /* No horizontal padding here, .inputAreaInner handles it */
   padding-top: 0.5rem;
-  padding-bottom: 0.75rem;
+  padding-bottom: 0.25rem;
   border-top: 1px solid var(--border-primary);
   background-color: var(--surface-primary);
   flex-shrink: 0;
@@ -12,10 +12,10 @@
 }
 
 .inputAreaInner {
-  max-width: 48rem; /* This centers the actual input form group */
+  max-width: 48rem;
   margin: 0 auto;
   width: 100%;
-  padding-left: 1rem;  /* Padding for the centered content */
+  padding-left: 1rem;
   padding-right: 1rem;
 }
 
@@ -100,7 +100,63 @@
 .footerDisclaimer {
   font-size: 0.75rem;
   color: var(--text-secondary);
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   text-align: center;
   padding: 0 0.5rem;
+}
+
+.customFooter {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 1rem;
+  padding-bottom: 0.75rem;
+}
+
+.customFooter p {
+  margin: 0.25rem 0;
+}
+
+/* UPDATED SECTION FOR FOOTER LINKS */
+.footerLinksContainer {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Important for responsiveness */
+  gap: 0.375rem 0.75rem; /* row-gap column-gap */
+}
+
+.footerLink { /* Generic style for all links in this container */
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.2s ease-out, transform 0.1s ease-out;
+  padding: 0.1rem 0.2rem;
+  display: inline-block;
+}
+.footerLink:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Specific link colors using CSS variables from globals.css */
+.kofiLink {
+  color: var(--text-kofi);
+}
+/* .twitterLink { REMOVED
+  color: var(--text-twitter);
+} */
+.linkedinLink {
+  color: var(--text-linkedin);
+}
+.portfolioLink { /* NEW */
+  color: var(--text-portfolio);
+}
+
+.linkSeparator {
+  margin: 0 0.25em;
+  opacity: 0.6;
+  color: var(--text-secondary);
+  user-select: none;
 }
