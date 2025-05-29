@@ -5,7 +5,7 @@ import { useState, FormEvent, useRef, useEffect, useCallback } from 'react';
 import styles from './ChatInterface.module.css';
 import ChatMessage from '../components/chat/ChatMessage';
 import ChatInput from '../components/chat/ChatInput';
-import { ThemeToggleButton } from './layout'; // Assuming this path is correct
+import { ThemeToggleButton, useTheme } from './contexts/ThemeContext';
 
 export interface Message {
   id: string;
