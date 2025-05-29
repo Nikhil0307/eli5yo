@@ -2,7 +2,7 @@
 
 ELI5YO is an open-source web application that simplifies any complex topic, term, or text snippet entered by the user — as if explaining it to a 5-year-old. This tool leverages Google's Gemini Large Language Model (LLM) to make information more accessible, friendly, and less intimidating.
 
-**Live Demo:** [eli5yo-yourusername.vercel.app](https://eli5yo-yourusername.vercel.app) (Replace with your Vercel link once deployed)
+**Live Demo:** [eli5yo.vercel.app](https://eli5yo.vercel.app)
 
 ## Features (MVP)
 *   🔤 Single input field for entering the topic/text
@@ -18,13 +18,13 @@ ELI5YO is an open-source web application that simplifies any complex topic, term
 *   **Backend Logic:** Next.js API Routes (Vercel Serverless Functions)
 *   **LLM:** Google Gemini API (`gemini-1.5-flash-latest`)
 *   **Deployment:** Vercel
-*   **Version Control:** Git & GitHub
+*   **Version Control:** GitHub
 
 ## Getting Started Locally
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/<your-github-username>/eli5yo.git
+    git clone https://github.com/Nikhil0307/eli5yo.git
     cd eli5yo
     ```
 
